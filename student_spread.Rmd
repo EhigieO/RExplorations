@@ -1,0 +1,64 @@
+---
+title: "Untitled"
+author: "Oshioke"
+date: "11/17/2021"
+output: html_document
+---
+```{r}
+library(readr)
+data<- read.csv(file.choose(), sep = ";", header=T)
+data
+```
+
+```{r}
+Mean_G1<- mean(data$G1)
+Mean_G1
+```
+
+```{r}
+Mean_G2<- mean(data$G2)
+Mean_G2
+```
+```{r}
+Mean_G3<- mean(data$G3)
+Mean_G3
+```
+
+```{r}
+median_G1<-median(data$G1)
+median_G1
+```
+```{r}
+hist(data$G3, freq=FALSE)
+lines(density(data$G3), lwd=3, col='blue')
+```
+
+```{r}
+hist(data$G1, freq=FALSE)
+lines(density(data$G1), lwd=3, col='blue')
+```
+
+
+
+```{r}
+hist(data$G2, freq=FALSE)
+lines(density(data$G2), lwd=3, col='blue')
+```
+```{r}
+hist(data$G3, freq=FALSE)
+lines(density(data$G3), lwd=3, col='green')
+```
+
+```{r}
+value <- t.test(data$health, data$G1,alternative="two.sided")
+value
+```
+
+```{r}
+value <- t.test(data$health, data$G2,alternative="two.sided")
+value
+```
+```{r}
+value <- t.test(data$health, data$G3,alternative="two.sided")
+value
+```

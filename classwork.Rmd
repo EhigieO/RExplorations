@@ -1,0 +1,20 @@
+---
+title: "Untitled"
+author: "Oshioke"
+date: "11/17/2021"
+output: html_document
+---
+
+before and after ssemicolon
+```{r}
+before <- c(287,305,243,309)
+```
+
+```{r}
+after <- c(255,269,245,247)
+```
+two sample test
+```{r}
+paired<-t.test(before,after, paired=TRUE)
+paired
+```

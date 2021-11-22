@@ -1,0 +1,13 @@
+---
+title: "WebDb"
+author: "Leonardra"
+date: "11/15/2021"
+output: html_document
+---
+
+```{r}
+hs = read.csv("~/R Data files/house.csv")
+  
+  
+boxplot(Price~Status, data=hs, main = "Boxplot of price based on Hs status")
+```

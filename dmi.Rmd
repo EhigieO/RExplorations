@@ -1,0 +1,17 @@
+---
+title: "Untitled"
+author: "Oshioke"
+date: "11/15/2021"
+output: html_document
+---
+```{r}
+library(RMySQL)
+library(DBI)
+
+host<- "car-simulation-station.c9az8e0qjbgo.us-east-1.rds.amazonaws.com"
+connect<- dbConnect(MySQL(),dbname="car_simulation_station", host=host,
+                    port=3306,user="datacamp_user",
+                    password="learn tabular data for fun and profit")
+tables<-dbListTables(connect)
+tables
+```

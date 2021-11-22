@@ -1,0 +1,22 @@
+---
+title: "suicide_analysis"
+author: "Leonardra"
+date: "11/15/2021"
+output: html_document
+---
+
+
+```{r}
+who_suicide <- read.csv("~/R Data files/who_suicide_statistics_semi.csv", sep = ";", header=T)
+
+head(who_suicide)
+```
+```{r}
+sum(is.na(who_suicide))
+```
+
+```{r}
+who_suicide$year[is.na(who_suicide$year)]<-median(who_suicide$year,na.rm=TRUE)
+
+who_suicide
+```

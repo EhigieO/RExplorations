@@ -1,0 +1,40 @@
+---
+title: "kata"
+author: "Leonardra"
+date: "11/15/2021"
+output: html_document
+---
+
+```{r}
+cancer <- read.csv("~/Documents/rProjects/cancer.csv", sep = ",", header=T)
+head(cancer)
+```
+
+```{R}
+sum(is.na(cancer))
+```
+
+
+```{r}
+boxplot(radius_mean~diagnosis, data=cancer, main = "Boxplot of price based on Hs status")
+```
+
+```{r}
+hist(cancer$symmetry_worst, xlab="Symmetry Worst", main="Histogram of Symmetry")
+```
+
+```{r}
+cancer$radius_mean[is.na(cancer$radius_mean)]<-median(cancer$radius_mean,na.rm=TRUE)
+
+cancer
+
+boxplot(radius_mean~diagnosis, data=cancer, main = "Boxplot of price based on cancer radius mean")
+```
+
+```{r}
+ct <- read.csv(file.choose(), header=T)
+```
+
+```{r}
+t.test(ct$area_se~ct$diagnosis,alternative="two.sided")
+```

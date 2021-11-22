@@ -1,0 +1,34 @@
+---
+title: "dplyr"
+author: "Oshioke"
+date: "11/16/2021"
+output: html_document
+---
+```{r}
+library(hflights)
+  data("hflights")
+```
+
+
+```{r}
+ CO_carrier <- filter(hflights,UniqueCarrier=="CO")
+ CO_carrier_mean <-  mean(as.numeric(CO_carrier$ActualElapsedTime),na.rm = TRUE)
+ CO_carrier_mean
+```
+
+```{r}
+ AA_carrier <- filter(hflights, UniqueCarrier == "AA")
+ AA_carrier_mean <-  mean(as.numeric(AA_carrier$ActualElapsedTime),na.rm = TRUE)
+ AA_carrier_mean
+```
+
+```{r}
+ WN_carrier <- filter(hflights, UniqueCarrier == "WN")
+ WN_carrier_mean <-  mean(as.numeric(WN_carrier$ActualElapsedTime),na.rm = TRUE)
+ WN_carrier_mean
+```
+
+```{r}
+
+barplot(c(WN_carrier_mean, CO_carrier_mean, AA_carrier_mean),main = "Barchart of Actual Elapsed Time for Unique Carriers", col = "blue", names.arg = c("WN", "CO", "AA"))
+```

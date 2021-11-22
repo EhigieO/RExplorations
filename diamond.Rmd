@@ -1,0 +1,32 @@
+---
+title: "diamond"
+author: "Oshioke"
+date: "11/17/2021"
+output: html_document
+---
+
+```{r}
+mond <- read.csv(file.choose(), header=T)
+mond
+```
+
+```{r}
+t.test(mond$length.in.mm,mond$depth.in.mm, alternative="two.sided")
+```
+
+```{r}
+Mean_price<-mean(mond$price)
+mean(mond$price,trim=0.1) #trim=0.1 drops 10% each end
+```
+```{r}
+median(mond$price)
+library("matrixStats")
+```
+
+```{r}
+weighted_mean_price = weighted.mean(mond$price, w=mond[["carat"]])
+weighted_median_price = weightedMedian(mond[["price"]], w=mond[["carat"]])
+
+weighted_mean_price
+weighted_median_price
+```

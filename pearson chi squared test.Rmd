@@ -1,0 +1,54 @@
+---
+title: "Untitled"
+author: "Oshioke"
+date: "11/22/2021"
+output: html_document
+---
+```{r}
+library(gplots)
+```
+
+```{r}
+data<-read.csv(file.choose(), header=T)
+```
+
+```{r}
+dim(data)
+str(data)
+```
+```{r}
+ct<-table(data$age.intervals,data$Experience.interval)
+chisq.test(ct)
+```
+```{r}
+breastCancer <- read.csv(file.choose(), header = T)
+```
+
+```{r}
+str(breastCancer)
+```
+
+```{r}
+na.omit(breastCancer)
+```
+```{r}
+means<- round(tapply(breastCancer$breastcancer, breastCancer$continent, mean), digits = 2)#rounded to 3 decimal place
+```
+```{r}
+plotmeans(breastCancer$breastcancer~breastCancer$continent, digits=2,
+          ccol = "red", nean.labels=T, main="Plot of breast cancer means by continent")
+```
+
+```{r}
+boxplot(breastCancer$breastcancer~breastCancer$continent, main = "breast cancer by continent(mean is black dot)", xlab = "continents", ylab = "new cases per 100,000 residents", col=rainbow(7))
+points(means, col= "black", pch=18)
+```
+
+```{r}
+aov_cont<- aov(breastCancer$breastcancer~breastCancer$continent)
+summary(aov_cont) #display results for my ANOVA test
+```
+```{r}
+tuk <- TukeyHSD(aov_cont)
+plot(tuk)
+```

@@ -1,0 +1,23 @@
+---
+title: "Untitled"
+author: "Oshioke"
+date: "11/15/2021"
+output: html_document
+---
+
+```{r}
+library(RMySQL)
+library(DBI)
+
+host<- "courses.csrrinzqubik.us-east-1.rds.amazonaws.com"
+connect<- dbConnect(MySQL(),dbname="tweater", host=host,
+                    port=3306,user="student",
+                    password="datacamp")
+tables<-dbListTables(connect)
+tables
+users<-dbReadTable(connect,"tweats")
+```
+```{r}
+users<-dbReadTable(connect,"users")
+```
+

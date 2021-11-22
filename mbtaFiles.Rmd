@@ -1,0 +1,11 @@
+---
+title: "mbta"
+author: "Oshioke"
+date: "11/16/2021"
+output: html_document
+---
+
+```{r}
+mbtaFile <- read_excel("~/Downloads/mbta.xlsx", sheet=1)
+mbtaFile
+```
